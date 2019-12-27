@@ -4,6 +4,7 @@ Kullanılan paketler: :tada:
 - React Navigation(Drawer,Stack)
 - React Native Vector Icons
 - React Native Lightbox
+- React Native Motion(Animasyon Paketi)
 
 NOTLAR:
 
