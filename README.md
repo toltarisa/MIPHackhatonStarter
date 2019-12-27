@@ -12,3 +12,10 @@ NOTLAR:
 - `Eğer render fonksiyonu içerisinde birden fazla aynı yapıda kod bloğu return edeceksek verilerimizi bir dizi içinde toplayıp [ihtiyaca göre map,filter,foreach, vb (higher order) fonksiyonlar kullanırsak debug etmek daha kolay olacaktır.]`
 
 - `Native Base ile ilgili birkaç örnek About screen'i içerisinde mevcut.Kullancağımız diğer componentler hemen hemen bunlara benzer olacaktır`
+
+Repoyu Kurmak için:
+
+- sağdaki yeşil butondan repoyu klonla.Herhangi bir klasörde terminal aç.git clone kopyaladıgın adresi yapıstır ve komutu çalıstır.
+- ardından vscode ile repoyu aç.
+- terminalden npm install veya varsa yarn install komutu ile paketleri yükle
+- ardından react-native run-android komutu ile projeyi çalıştır. :tada:
