@@ -18,7 +18,7 @@ export default class extends Component {
           style={styles.menu}>
           <Icon name="ios-menu" size={40} />
         </TouchableOpacity>
-        <Text>Home Page</Text>
+        <Text>Chat Page</Text>
       </View>
     );
   }

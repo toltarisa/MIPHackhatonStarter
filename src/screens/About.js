@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import {Button, Spinner} from 'native-base';
 import Icon from 'react-native-vector-icons/Ionicons';
+
 export default class extends Component {
   constructor() {
     super();
@@ -12,6 +13,13 @@ export default class extends Component {
   render() {
     return (
       <View style={styles.main}>
+        <TouchableOpacity
+          onPress={() => {
+            this.props.navigation.openDrawer();
+          }}
+          style={styles.menu}>
+          <Icon name="ios-menu" size={40} />
+        </TouchableOpacity>
         <View style={{flex: 1}}>
           <Button style={{width: 100}} success>
             <Text style={{color: '#fff'}}> Success </Text>
@@ -38,5 +46,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
+  },
+  menu: {
+    marginHorizontal: 10,
+    marginVertical: 10,
   },
 });
