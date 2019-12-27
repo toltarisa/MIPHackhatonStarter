@@ -1,6 +1,6 @@
-Kullanılan paketler:
+Kullanılan paketler: :tada:
 
-- Native Base UI Framework: https://docs.nativebase.io/Components.html(Button,Renk,Input vs.)
+- Native Base UI Framework: https://docs.nativebase.io/Components.html (Button,Renk,Input vs.)
 - React Navigation(Drawer,Stack)
 - React Native Vector Icons
 - React Native Lightbox
