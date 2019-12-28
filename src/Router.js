@@ -7,7 +7,10 @@ import About from './screens/About';
 import Details from './screens/Details';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Chat, LogIn, Friends, Search } from './screens/index';
+
+import {Chat, LogIn, Friends, JobList} from './screens/index';
+
+
 import React from 'react';
 
 const TabStack = createBottomTabNavigator(
@@ -20,11 +23,12 @@ const TabStack = createBottomTabNavigator(
         ),
       },
     },
-    Search: {
-      screen: Search,
+    JobList: {
+      screen: JobList,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => (
-          <Icon name="ios-search" size={25} color={tintColor} />
+        tabBarIcon: ({tintColor}) => (
+          <Icon name="ios-list" size={35} color={tintColor} />
+
         ),
       },
     },
