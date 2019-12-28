@@ -8,16 +8,18 @@ import Details from './screens/Details';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+
 import {
   Chat,
   LogIn,
   Friends,
-  JobList,
+  JobIntern,
   SatinAl,
   Admin,
   CreateJobApplicant,
   CreateSellingProduct,
 } from './screens/index';
+
 
 import React from 'react';
 
@@ -31,10 +33,10 @@ const TabStack = createBottomTabNavigator(
         ),
       },
     },
-    JobList: {
-      screen: JobList,
+    İş: {
+      screen: JobIntern,
       navigationOptions: {
-        tabBarIcon: ({tintColor}) => (
+        tabBarIcon: ({ tintColor }) => (
           <Icon name="ios-list" size={35} color={tintColor} />
         ),
       },

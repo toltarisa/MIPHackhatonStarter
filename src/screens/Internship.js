@@ -1,29 +1,8 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Modal,
-  TouchableOpacity,
-  Alert,
-} from 'react-native';
+import { StyleSheet, View, Text, Modal, TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-
-import {
-  Card,
-  CardItem,
-  Body,
-  Button,
-  Content,
-  Form,
-  Item,
-  Input,
-  Container,
-} from 'native-base';
-import {ScrollView} from 'react-native-gesture-handler';
-
-
-
+import { Card, CardItem, Body, Button, Content, Form, Item, Input, Header, Right, Left, Title, Container, } from 'native-base';
+import { ScrollView } from 'react-native-gesture-handler';
 export default class extends Component {
   constructor() {
     super();
@@ -40,7 +19,7 @@ export default class extends Component {
     const JobData = [
       {
         id: 1,
-        title: 'Demir Ustası',
+        title: 'Stajyer Elektrik Mühendisi ',
         description:
           'Talaşlı İmalat, Kalıp Tasarımı ve İmalatı konularında minimum 10 yıl tecrübeli,Üniversitelerin Makine Mühendisliği bölümlerinden mezun,AutoCAD ve SolidWorks programlarına hakim,5 yıl yöneticilik deneyimine sahip olmalı',
         company: 'BMS Çelik Hasır',
@@ -48,7 +27,7 @@ export default class extends Component {
       },
       {
         id: 2,
-        title: 'Marangoz',
+        title: 'Marangoz Çırağı',
         description:
           'Marangoz ustası,mobilya ustası ve en az 4 sene marangoz veya mobilya işinde çalışmış elemanlar aranıyor.İlgili adayların başvurularını bekliyoruz',
         company: 'Gencer Ambalaj',
@@ -56,7 +35,7 @@ export default class extends Component {
       },
       {
         id: 3,
-        title: 'Elektronik Teknisyeni',
+        title: 'Stajyer Elektronik Teknisyeni',
         description:
           'MYO ve/veya Teknik Liselein Elektronik, Elektrik-Elektronik, Mekatraonik vb. bölümlerinden mezun,Elekronik devre şemaları ve kumanda devrelerini okuyabilen,Elektronik bakım/arıza-sorun çözme konusunda en az 3 yıl fabrika/seri üretim tecrübesine sahip,ercihen Siemens, Beckoff Ürün ailesinde tecrübeli,',
         company: 'Delron Elektronik',
@@ -64,7 +43,7 @@ export default class extends Component {
       },
       {
         id: 4,
-        title: 'Elektrik teknisyeni',
+        title: 'Stajyer Elektrik teknisyeni',
         description:
           'Meslek Liseleri veya Meslek Yüksek Okullarının ilgili bölümlerinden mezun olan, Konusu ile alakalı Mesleki Yeterlilik Belgelerine sahip olan, Konusunda 3 yıl ve üzeri tecrübeye sahip,Tercihen Fabrika / Üretim Tesisi veya Şantiye geçmişi olan,Vardiyalı çalışma sistemine uygun olan,',
         company: 'Vestel',
@@ -72,7 +51,7 @@ export default class extends Component {
       },
       {
         id: 5,
-        title: 'Tekstil Mühendisi',
+        title: 'Stajyer Tekstil Mühendisi',
         description:
           'Tercihen Siemens, Beckoff Ürün ailesinde tecrübeli,İş takibi kuvvetli,Dosya düzenleme ve oluşturma; sistemsel takip yeteneğine sahip,Bilgisayar ofis programlarına hakim,Takım çalışmalarına yatkın,zaman yönetimi ve iletişim becerileri güçlü,',
         company: 'Fabrik Konfeksiyon',
@@ -162,10 +141,10 @@ export default class extends Component {
                           this.setModalVisible(true);
                         }}
                         small
-                        success
+                        warning
                         style={styles.button}>
                         <Icon color={'#fff'} name="ios-checkmark" size={20} />
-                        <Text style={styles.textColor}>Başvur</Text>
+                        <Text style={styles.textColor}>Staj İçin Başvur</Text>
                       </Button>
                     </CardItem>
                   </Card>
