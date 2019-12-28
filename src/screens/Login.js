@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from 'react-native';
 import { Container, Button, Content, Header, Form, Item, Input, Label } from 'native-base';
 import Icon from 'react-native-vector-icons/Ionicons';
+
+
 export default class extends Component {
 
   constructor(props) {
