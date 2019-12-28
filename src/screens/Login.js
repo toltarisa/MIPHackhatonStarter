@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-
+const ls = require('react-native-local-storage');
 import {
   StyleSheet,
   View,
@@ -41,6 +41,8 @@ export default class extends Component {
         if (res.status === 200) {
           if (res.data.Role === 'M') {
             this.setModalVisible(true);
+
+            ls.save('id', res.data.Id).then(res => {});
           }
           if (res.data.Role === 'E') {
           }
@@ -62,8 +64,7 @@ export default class extends Component {
             animationType="slide"
             transparent={false}
             visible={this.state.modalVisible}
-            onRequestClose={() => {}}
-            navigation={this.props.navigation}>
+            onRequestClose={() => {}}>
             <View style={{marginTop: 22, flex: 1}}>
               <View style={{flex: 1}}>
                 <Container>
