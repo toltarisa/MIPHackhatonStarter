@@ -17,10 +17,6 @@ import {
   Form,
   Item,
   Input,
-  Header,
-  Right,
-  Left,
-  Title,
   Container,
 } from 'native-base';
 import {ScrollView} from 'react-native-gesture-handler';
