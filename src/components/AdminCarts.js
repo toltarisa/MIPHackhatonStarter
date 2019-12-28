@@ -1,12 +1,5 @@
 import React, {Component} from 'react';
-import {
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Text,
-  Modal,
-  ImageBackground,
-} from 'react-native';
+import {StyleSheet, View, TouchableOpacity, Text, Modal} from 'react-native';
 import {Container, Content, Button} from 'native-base';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ProductSelling from './ProductSelling';
@@ -202,17 +195,13 @@ export default class extends Component {
               <Text>Ürün İlanı</Text>
             </View>
           </TouchableOpacity>
-          <ImageBackground
-            source={require('../assets/images/handshake.png')}
-            style={{width: 150}}>
-            <TouchableOpacity
-              onPress={() => this.setModalVisible2(true)}
-              style={styles.card}>
-              <View>
-                <Text>İş İlanı</Text>
-              </View>
-            </TouchableOpacity>
-          </ImageBackground>
+          <TouchableOpacity
+            onPress={() => this.setModalVisible2(true)}
+            style={styles.card}>
+            <View>
+              <Text>İş İlanı</Text>
+            </View>
+          </TouchableOpacity>
         </View>
         <View
           style={{
