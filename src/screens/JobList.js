@@ -8,8 +8,22 @@ import {
   Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Card, CardItem, Body, Button, Content, Form, Item, Input, Header, Right, Left, Title, Container, } from 'native-base';
-import { ScrollView } from 'react-native-gesture-handler';
+
+import {
+  Card,
+  CardItem,
+  Body,
+  Button,
+  Content,
+  Form,
+  Item,
+  Input,
+  Container,
+} from 'native-base';
+import {ScrollView} from 'react-native-gesture-handler';
+
+
+
 export default class extends Component {
   constructor() {
     super();
