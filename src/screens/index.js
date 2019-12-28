@@ -1,8 +1,8 @@
 import Chat from './Chat';
 import LogIn from './LogReg';
-import JobList from './JobList';
+import JobIntern from './JobIntern';
 import Friends from './Friends';
 
-export {Chat, News, JobList, Friends};
+export { Chat, LogIn, JobIntern, Friends };
 
 
