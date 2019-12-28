@@ -49,48 +49,7 @@ export default class extends Component {
 
   render() {
     const {JobData} = this.state;
-    // const JobData = [
-    //   {
-    //     id: 1,
-    //     title: 'Stajyer Elektrik Mühendisi ',
-    //     description:
-    //       'Talaşlı İmalat, Kalıp Tasarımı ve İmalatı konularında minimum 10 yıl tecrübeli,Üniversitelerin Makine Mühendisliği bölümlerinden mezun,AutoCAD ve SolidWorks programlarına hakim,5 yıl yöneticilik deneyimine sahip olmalı',
-    //     company: 'BMS Çelik Hasır',
-    //     cv: '',
-    //   },
-    //   {
-    //     id: 2,
-    //     title: 'Marangoz Çırağı',
-    //     description:
-    //       'Marangoz ustası,mobilya ustası ve en az 4 sene marangoz veya mobilya işinde çalışmış elemanlar aranıyor.İlgili adayların başvurularını bekliyoruz',
-    //     company: 'Gencer Ambalaj',
-    //     cv: '',
-    //   },
-    //   {
-    //     id: 3,
-    //     title: 'Stajyer Elektronik Teknisyeni',
-    //     description:
-    //       'MYO ve/veya Teknik Liselein Elektronik, Elektrik-Elektronik, Mekatraonik vb. bölümlerinden mezun,Elekronik devre şemaları ve kumanda devrelerini okuyabilen,Elektronik bakım/arıza-sorun çözme konusunda en az 3 yıl fabrika/seri üretim tecrübesine sahip,ercihen Siemens, Beckoff Ürün ailesinde tecrübeli,',
-    //     company: 'Delron Elektronik',
-    //     cv: '',
-    //   },
-    //   {
-    //     id: 4,
-    //     title: 'Stajyer Elektrik teknisyeni',
-    //     description:
-    //       'Meslek Liseleri veya Meslek Yüksek Okullarının ilgili bölümlerinden mezun olan, Konusu ile alakalı Mesleki Yeterlilik Belgelerine sahip olan, Konusunda 3 yıl ve üzeri tecrübeye sahip,Tercihen Fabrika / Üretim Tesisi veya Şantiye geçmişi olan,Vardiyalı çalışma sistemine uygun olan,',
-    //     company: 'Vestel',
-    //     cv: '',
-    //   },
-    //   {
-    //     id: 5,
-    //     title: 'Stajyer Tekstil Mühendisi',
-    //     description:
-    //       'Tercihen Siemens, Beckoff Ürün ailesinde tecrübeli,İş takibi kuvvetli,Dosya düzenleme ve oluşturma; sistemsel takip yeteneğine sahip,Bilgisayar ofis programlarına hakim,Takım çalışmalarına yatkın,zaman yönetimi ve iletişim becerileri güçlü,',
-    //     company: 'Fabrik Konfeksiyon',
-    //     cv: '',
-    //   },
-    // ];
+
     return (
       <View style={styles.main}>
         <View>

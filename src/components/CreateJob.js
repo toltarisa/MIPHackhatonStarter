@@ -1,14 +1,54 @@
 import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {StyleSheet, View, Text, ImageBackground} from 'react-native';
-import {Container, Content, Form, Item, Input, Button} from 'native-base';
+const ls = require('react-native-local-storage');
+import {
+  Container,
+  Content,
+  Form,
+  Item,
+  Input,
+  Button,
+  Picker,
+} from 'native-base';
+import axios from 'axios';
 export default class extends Component {
   constructor() {
     super();
 
-    this.state = {};
-  }
+    this.state = {
+      title: '',
+      text: '',
+      category: '',
 
+      UserId: '',
+    };
+  }
+  onValueChange2 = value => {
+    this.setState({
+      title: value,
+    });
+  };
+
+  createJob = () => {
+    ls.get('id').then(data => {
+      console.log(data);
+      this.setState({UserId: data});
+    });
+    const {title, text, category, UserId} = this.state;
+    const url = 'http://10.103.174.191:5000/addJob';
+    axios
+      .post(url, {
+        title,
+        text,
+        category,
+        UserId,
+      })
+      .then(res => console.log(res))
+      .catch(err => {
+        throw err;
+      });
+  };
   render() {
     return (
       <View style={{flex: 1}}>
@@ -20,23 +60,9 @@ export default class extends Component {
               <Form style={styles.form}>
                 <Item style={styles.item} last>
                   <Input
-                    onChange={e => this.setState({name: e.nativeEvent.text})}
+                    onChange={e => this.setState({text: e.nativeEvent.text})}
                     style={styles.input}
-                    placeholder="Ürün Adı"
-                  />
-                </Item>
-                <Item style={styles.item} last>
-                  <Input
-                    onChange={e => this.setState({price: e.nativeEvent.text})}
-                    style={styles.input}
-                    placeholder="Fiyat"
-                  />
-                </Item>
-                <Item style={styles.item} last>
-                  <Input
-                    onChange={e => this.setState({stok: e.nativeEvent.text})}
-                    style={styles.input}
-                    placeholder="Stok"
+                    placeholder="Açıklama"
                   />
                 </Item>
                 <Item style={styles.item} last>
@@ -48,17 +74,33 @@ export default class extends Component {
                     placeholder="Kategori"
                   />
                 </Item>
+                <Item picker>
+                  <Picker
+                    mode="dropdown"
+                    iosIcon={<Icon name="arrow-down" />}
+                    style={{width: undefined}}
+                    placeholder="Select your SIM"
+                    placeholderStyle={{color: '#bfc6ea'}}
+                    placeholderIconColor="#007aff"
+                    selectedValue={this.state.title}
+                    onValueChange={this.onValueChange2.bind(this)}>
+                    <Picker.Item label="Personel" value="Personel" />
+                    <Picker.Item label="Stajyer" value="Stajyer" />
+                  </Picker>
+                </Item>
 
                 <View>
                   <Button
                     onPress={() => {
-                      this.sendProductData();
+                      this.createJob();
                     }}
                     small
                     success
-                    style={{width: '30%', height: 50, padding: 10}}>
+                    style={{width: '40%', height: 50, padding: 10}}>
                     <Icon color={'#fff'} name="ios-checkmark" size={30} />
-                    <Text style={{fontSize: 15, color: '#fff'}}>Gönder</Text>
+                    <Text style={{fontSize: 15, color: '#fff'}}>
+                      İlan Oluştur
+                    </Text>
                   </Button>
                 </View>
               </Form>
