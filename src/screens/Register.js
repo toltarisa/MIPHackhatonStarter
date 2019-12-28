@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, TouchableOpacity, Alert} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  ImageBackground,
+} from 'react-native';
 import {
   Container,
   Button,
@@ -26,48 +32,54 @@ export default class extends Component {
   render() {
     return (
       <Container style={styles.main}>
-        <Content style={styles.content}>
-          <Form onSubmit={this.handleSubmit}>
-            <Item>
-              <Input
-                onChange={e => this.setState({isim: e.nativeEvent.text})}
-                style={styles.formInput}
-                placeholder="İsim"
-              />
-            </Item>
-            <Item>
-              <Input
-                onChange={e => this.setState({soyisim: e.nativeEvent.text})}
-                style={styles.formInput}
-                placeholder="Soy İsim"
-              />
-            </Item>
-            <Item>
-              <Input
-                onChange={e => this.setState({tckimlik: e.nativeEvent.text})}
-                style={styles.formInput}
-                placeholder="TC Kimlik Numarası"
-              />
-            </Item>
-            <Item>
-              <Input
-                onChange={e => this.setState({email: e.nativeEvent.text})}
-                style={styles.formInput}
-                placeholder="E-Posta"
-              />
-            </Item>
-            <Item>
-              <Input
-                onChange={e => this.setState({password: e.nativeEvent.text})}
-                style={styles.formInput}
-                placeholder="Şifre"
-              />
-            </Item>
-            <TouchableOpacity onPress={this.onPress} style={styles.loginButton}>
-              <Text style={styles.loginText}>Kayıt Ol</Text>
-            </TouchableOpacity>
-          </Form>
-        </Content>
+        <ImageBackground
+          source={require('../assets/images/BackGround.jpg')}
+          style={{flex: 1}}>
+          <Content style={styles.content}>
+            <Form onSubmit={this.handleSubmit}>
+              <Item>
+                <Input
+                  onChange={e => this.setState({isim: e.nativeEvent.text})}
+                  style={styles.formInput}
+                  placeholder="İsim"
+                />
+              </Item>
+              <Item>
+                <Input
+                  onChange={e => this.setState({soyisim: e.nativeEvent.text})}
+                  style={styles.formInput}
+                  placeholder="Soy İsim"
+                />
+              </Item>
+              <Item>
+                <Input
+                  onChange={e => this.setState({tckimlik: e.nativeEvent.text})}
+                  style={styles.formInput}
+                  placeholder="TC Kimlik Numarası"
+                />
+              </Item>
+              <Item>
+                <Input
+                  onChange={e => this.setState({email: e.nativeEvent.text})}
+                  style={styles.formInput}
+                  placeholder="E-Posta"
+                />
+              </Item>
+              <Item>
+                <Input
+                  onChange={e => this.setState({password: e.nativeEvent.text})}
+                  style={styles.formInput}
+                  placeholder="Şifre"
+                />
+              </Item>
+              <TouchableOpacity
+                onPress={this.onPress}
+                style={styles.loginButton}>
+                <Text style={styles.loginText}>Kayıt Ol</Text>
+              </TouchableOpacity>
+            </Form>
+          </Content>
+        </ImageBackground>
       </Container>
     );
   }
@@ -83,7 +95,7 @@ const styles = StyleSheet.create({
   loginButton: {
     borderRadius: 20,
 
-    marginVertical: '7%',
+    marginTop: '20%',
     marginHorizontal: '5%',
     alignItems: 'center',
     backgroundColor: '#515859',

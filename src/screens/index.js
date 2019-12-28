@@ -7,15 +7,13 @@ import Admin from './Admin/Admin';
 import CreateJobApplicant from './Admin/CreateJobApplicant';
 import CreateSellingProduct from './Admin/CreateSellingProduct';
 
-
 export {
   Chat,
   LogIn,
-  JobInter,
+  JobIntern,
   Friends,
   SatinAl,
   Admin,
   CreateJobApplicant,
   CreateSellingProduct,
 };
-
