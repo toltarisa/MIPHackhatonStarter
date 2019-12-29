@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 const ls = require('react-native-local-storage');
+import {ToastAndroid} from 'react-native';
 import {
   StyleSheet,
   View,
@@ -40,9 +41,12 @@ export default class extends Component {
       .then(res => {
         if (res.status === 200) {
           if (res.data.Role === 'M') {
+            ToastAndroid.show('Giriş Başarılı', ToastAndroid.SHORT);
             this.setModalVisible(true);
-
             ls.save('id', res.data.Id).then(res => {});
+            this.setState({email: '', password: ''});
+          } else {
+            ToastAndroid.show('Giriş Başarısız', ToastAndroid.SHORT);
           }
           if (res.data.Role === 'E') {
           }
@@ -87,6 +91,7 @@ export default class extends Component {
                   name="ios-arrow-back"
                   size={20}
                 />
+                <Text style={{color: '#fff'}}>Çıkış Yap</Text>
               </Button>
             </View>
           </Modal>
@@ -99,6 +104,7 @@ export default class extends Component {
                   onChange={e => this.setState({email: e.nativeEvent.text})}
                   style={styles.formInput}
                   placeholder="E-Posta"
+                  value={this.state.email}
                 />
               </Item>
               <Item>
@@ -106,6 +112,7 @@ export default class extends Component {
                   onChange={e => this.setState({password: e.nativeEvent.text})}
                   style={styles.formInput}
                   placeholder="Şifre"
+                  value={this.state.password}
                 />
               </Item>
               <TouchableOpacity
@@ -157,4 +164,5 @@ const styles = StyleSheet.create({
     height: 300,
     marginBottom: '30%',
   },
+  hidebtn: {},
 });
