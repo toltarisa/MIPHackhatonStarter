@@ -229,7 +229,7 @@ export default class extends Component {
             onPress={() => this.setModalVisible4(true)}
             style={styles.card}>
             <View style={styles.textCenter}>
-              <Icon name="ios-send" size={40} />
+              <Icon name="ios-information-circle-outline" size={40} />
               <Text style={styles.textColor}>Anket Oluştur</Text>
             </View>
           </TouchableOpacity>
