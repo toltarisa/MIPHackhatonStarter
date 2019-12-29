@@ -13,6 +13,7 @@ import {
 import {Container, Content, Form, Item, Input, Button} from 'native-base';
 import AdminCart from '../components/AdminCarts';
 import axios from 'axios';
+import EmployeeCart from '../components/EmployeeCart';
 
 export default class extends Component {
   constructor(props) {
@@ -21,11 +22,16 @@ export default class extends Component {
       email: '',
       password: '',
       modalVisible: false,
+      modalVisible1: false,
     };
   }
 
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
+  }
+
+  setModalVisible1(visible) {
+    this.setState({modalVisible1: visible});
   }
 
   Login = () => {
@@ -41,14 +47,17 @@ export default class extends Component {
       .then(res => {
         if (res.status === 200) {
           if (res.data.Role === 'M') {
-            ToastAndroid.show('Giriş Başarılı', ToastAndroid.SHORT);
+            ToastAndroid.show('Yönetici Girişi Başarılı', ToastAndroid.SHORT);
             this.setModalVisible(true);
+            ls.save('id', res.data.Id).then(res => {});
+            this.setState({email: '', password: ''});
+          } else if (res.data.Role === 'E') {
+            ToastAndroid.show('Çalışan Girişi Başarılı', ToastAndroid.SHORT);
+            this.setModalVisible1(true);
             ls.save('id', res.data.Id).then(res => {});
             this.setState({email: '', password: ''});
           } else {
             ToastAndroid.show('Giriş Başarısız', ToastAndroid.SHORT);
-          }
-          if (res.data.Role === 'E') {
           }
         }
       })
@@ -84,6 +93,37 @@ export default class extends Component {
                 primary
                 onPress={() => {
                   this.setModalVisible(!this.state.modalVisible);
+                }}>
+                <Icon
+                  style={{marginLeft: 10}}
+                  color={'#fff'}
+                  name="ios-arrow-back"
+                  size={20}
+                />
+                <Text style={{color: '#fff'}}>Çıkış Yap</Text>
+              </Button>
+            </View>
+          </Modal>
+          <Modal
+            animationType="slide"
+            transparent={false}
+            visible={this.state.modalVisible1}
+            onRequestClose={() => {}}>
+            <View style={{marginTop: 22, flex: 1}}>
+              <View style={{flex: 1}}>
+                <Container>
+                  <Content style={styles.content}>
+                    <EmployeeCart />
+                  </Content>
+                </Container>
+              </View>
+            </View>
+            <View>
+              <Button
+                style={styles.hidebtn}
+                primary
+                onPress={() => {
+                  this.setModalVisible1(!this.state.modalVisible1);
                 }}>
                 <Icon
                   style={{marginLeft: 10}}

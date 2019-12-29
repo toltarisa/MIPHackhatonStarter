@@ -1,13 +1,12 @@
-import { createAppContainer } from 'react-navigation';
-import { createDrawerNavigator } from 'react-navigation-drawer';
-import { createStackNavigator } from 'react-navigation-stack';
+import {createAppContainer} from 'react-navigation';
+import {createDrawerNavigator} from 'react-navigation-drawer';
+import {createStackNavigator} from 'react-navigation-stack';
 import DrawerMenu from './components/DrawerMenu';
 import Home from './screens/Home';
 import About from './screens/About';
 import Details from './screens/Details';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
-
 
 import {
   Chat,
@@ -21,7 +20,6 @@ import {
   CreateSellingProduct,
 } from './screens/index';
 
-
 import React from 'react';
 
 const TabStack = createBottomTabNavigator(
@@ -29,7 +27,7 @@ const TabStack = createBottomTabNavigator(
     Anasayfa: {
       screen: Announcement,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => (
+        tabBarIcon: ({tintColor}) => (
           <Icon name="ios-home" size={25} color={tintColor} />
         ),
       },
@@ -37,23 +35,23 @@ const TabStack = createBottomTabNavigator(
     İş: {
       screen: JobIntern,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => (
+        tabBarIcon: ({tintColor}) => (
           <Icon name="ios-list" size={35} color={tintColor} />
         ),
       },
     },
-    Friends: {
-      screen: Friends,
-      navigationOptions: {
-        tabBarIcon: ({ tintColor }) => (
-          <Icon name="ios-notifications-outline" size={25} color={tintColor} />
-        ),
-      },
-    },
+    // Friends: {
+    //   screen: Friends,
+    //   navigationOptions: {
+    //     tabBarIcon: ({ tintColor }) => (
+    //       <Icon name="ios-notifications-outline" size={25} color={tintColor} />
+    //     ),
+    //   },
+    // },
     Giriş: {
       screen: LogIn,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => (
+        tabBarIcon: ({tintColor}) => (
           <Icon name="ios-log-in" size={25} color={tintColor} />
         ),
       },
@@ -67,7 +65,7 @@ const AfterLoginTab = createBottomTabNavigator(
     SatinAl: {
       screen: SatinAl,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => (
+        tabBarIcon: ({tintColor}) => (
           <Icon name="ios-home" size={25} color={tintColor} />
         ),
       },
@@ -75,7 +73,7 @@ const AfterLoginTab = createBottomTabNavigator(
     Admin: {
       screen: Admin,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => (
+        tabBarIcon: ({tintColor}) => (
           <Icon name="ios-list" size={35} color={tintColor} />
         ),
       },
@@ -83,7 +81,7 @@ const AfterLoginTab = createBottomTabNavigator(
     CreateJobApplicant: {
       screen: CreateJobApplicant,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => (
+        tabBarIcon: ({tintColor}) => (
           <Icon name="ios-notifications-outline" size={25} color={tintColor} />
         ),
       },
@@ -91,7 +89,7 @@ const AfterLoginTab = createBottomTabNavigator(
     CreateSellingProduct: {
       screen: CreateSellingProduct,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => (
+        tabBarIcon: ({tintColor}) => (
           <Icon name="ios-log-in" size={25} color={tintColor} />
         ),
       },
