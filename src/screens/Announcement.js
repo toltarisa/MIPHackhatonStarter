@@ -44,7 +44,7 @@ export default class CardShowcaseExample extends Component {
                 <Text style={styles.textTitle}>{data.Title}</Text>
                 <Text style={styles.textDescription}>{data.Description}</Text>
                 <Body style={styles.body2}>
-                  <Text style={styles.textDate}>{data.Date}</Text>
+                  <Text style={styles.textDate}>{new Date(data.Date).getDate() + '/' + new Date(data.Date).getMonth() + '/' + new Date(data.Date).getFullYear()}</Text>
                   <Text style={styles.textLocation}>{data.Location}</Text>
                 </Body>
               </Body>

@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
-import {StyleSheet, View, TouchableOpacity, Text, Modal} from 'react-native';
-import {Container, Content, Button} from 'native-base';
+import React, { Component } from 'react';
+import { StyleSheet, View, TouchableOpacity, Text, Modal } from 'react-native';
+import { Container, Content, Button } from 'native-base';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ProductSelling from './ProductSelling';
 import ListProduct from './ListProducts';
 import CreateJob from './CreateJob';
+import Anket from './Anket';
 
 export default class extends Component {
   constructor() {
@@ -20,19 +21,19 @@ export default class extends Component {
   }
 
   setModalVisible1(visible) {
-    this.setState({modalVisible1: visible});
+    this.setState({ modalVisible1: visible });
   }
   setModalVisible2(visible) {
-    this.setState({modalVisible2: visible});
+    this.setState({ modalVisible2: visible });
   }
   setModalVisible3(visible) {
-    this.setState({modalVisible3: visible});
+    this.setState({ modalVisible3: visible });
   }
   setModalVisible4(visible) {
-    this.setState({modalVisible4: visible});
+    this.setState({ modalVisible4: visible });
   }
   setModalVisible5(visible) {
-    this.setState({modalVisible5: visible});
+    this.setState({ modalVisible5: visible });
   }
   render() {
     return (
@@ -41,9 +42,9 @@ export default class extends Component {
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible1}
-          onRequestClose={() => {}}>
-          <View style={{marginTop: 22, flex: 1}}>
-            <View style={{flex: 1}}>
+          onRequestClose={() => { }}>
+          <View style={{ marginTop: 22, flex: 1 }}>
+            <View style={{ flex: 1 }}>
               <Container>
                 <Content style={styles.content}>
                   <ProductSelling />
@@ -59,7 +60,7 @@ export default class extends Component {
                 this.setModalVisible1(!this.state.modalVisible1);
               }}>
               <Icon
-                style={{marginLeft: 10}}
+                style={{ marginLeft: 10 }}
                 color={'#fff'}
                 name="ios-arrow-back"
                 size={20}
@@ -71,9 +72,9 @@ export default class extends Component {
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible2}
-          onRequestClose={() => {}}>
-          <View style={{marginTop: 22, flex: 1}}>
-            <View style={{flex: 1}}>
+          onRequestClose={() => { }}>
+          <View style={{ marginTop: 22, flex: 1 }}>
+            <View style={{ flex: 1 }}>
               <Container>
                 <Content style={styles.content}>
                   <CreateJob />
@@ -89,7 +90,7 @@ export default class extends Component {
                 this.setModalVisible2(!this.state.modalVisible2);
               }}>
               <Icon
-                style={{marginLeft: 10}}
+                style={{ marginLeft: 10 }}
                 color={'#fff'}
                 name="ios-arrow-back"
                 size={20}
@@ -101,9 +102,9 @@ export default class extends Component {
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible3}
-          onRequestClose={() => {}}>
-          <View style={{marginTop: 22, flex: 1}}>
-            <View style={{flex: 1}}>
+          onRequestClose={() => { }}>
+          <View style={{ marginTop: 22, flex: 1 }}>
+            <View style={{ flex: 1 }}>
               <Container>
                 <Content style={styles.content}></Content>
               </Container>
@@ -117,7 +118,7 @@ export default class extends Component {
                 this.setModalVisible3(!this.state.modalVisible3);
               }}>
               <Icon
-                style={{marginLeft: 10}}
+                style={{ marginLeft: 10 }}
                 color={'#fff'}
                 name="ios-arrow-back"
                 size={20}
@@ -129,11 +130,13 @@ export default class extends Component {
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible4}
-          onRequestClose={() => {}}>
-          <View style={{marginTop: 22, flex: 1}}>
-            <View style={{flex: 1}}>
+          onRequestClose={() => { }}>
+          <View style={{ marginTop: 22, flex: 1 }}>
+            <View style={{ flex: 1 }}>
               <Container>
-                <Content style={styles.content}></Content>
+                <Content style={styles.content}>
+                  <Anket />
+                </Content>
               </Container>
             </View>
           </View>
@@ -145,7 +148,7 @@ export default class extends Component {
                 this.setModalVisible4(!this.state.modalVisible4);
               }}>
               <Icon
-                style={{marginLeft: 10}}
+                style={{ marginLeft: 10 }}
                 color={'#fff'}
                 name="ios-arrow-back"
                 size={20}
@@ -157,9 +160,9 @@ export default class extends Component {
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible5}
-          onRequestClose={() => {}}>
-          <View style={{marginTop: 22, flex: 1}}>
-            <View style={{flex: 1}}>
+          onRequestClose={() => { }}>
+          <View style={{ marginTop: 22, flex: 1 }}>
+            <View style={{ flex: 1 }}>
               <Container>
                 <Content style={styles.content}>
                   <ListProduct />
@@ -175,7 +178,7 @@ export default class extends Component {
                 this.setModalVisible5(!this.state.modalVisible5);
               }}>
               <Icon
-                style={{marginLeft: 10}}
+                style={{ marginLeft: 10 }}
                 color={'#fff'}
                 name="ios-arrow-back"
                 size={20}
@@ -227,7 +230,7 @@ export default class extends Component {
             style={styles.card}>
             <View style={styles.textCenter}>
               <Icon name="ios-send" size={40} />
-              <Text style={styles.textColor}>Mesaj Gönder</Text>
+              <Text style={styles.textColor}>Anket Oluştur</Text>
             </View>
           </TouchableOpacity>
         </View>
