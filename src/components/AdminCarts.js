@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import ProductSelling from './ProductSelling';
 import ListProduct from './ListProducts';
 import CreateJob from './CreateJob';
+
 export default class extends Component {
   constructor() {
     super();
@@ -191,15 +192,18 @@ export default class extends Component {
           <TouchableOpacity
             onPress={() => this.setModalVisible1(true)}
             style={styles.card}>
-            <View>
-              <Text>Ürün İlanı</Text>
+            <View style={styles.textCenter}>
+              <Icon name="ios-basket" size={40} />
+
+              <Text style={styles.textColor}>Ürün İlanı</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => this.setModalVisible2(true)}
             style={styles.card}>
-            <View>
-              <Text>İş İlanı</Text>
+            <View style={styles.textCenter}>
+              <Icon name="ios-briefcase" size={40} />
+              <Text style={styles.textColor}>İş İlanı</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -213,15 +217,17 @@ export default class extends Component {
           <TouchableOpacity
             onPress={() => this.setModalVisible3(true)}
             style={styles.card}>
-            <View>
-              <Text>Duyuru</Text>
+            <View style={styles.textCenter}>
+              <Icon name="ios-notifications-outline" size={40} />
+              <Text style={styles.textColor}>Duyuru</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => this.setModalVisible4(true)}
             style={styles.card}>
-            <View>
-              <Text>Mesaj Gönder</Text>
+            <View style={styles.textCenter}>
+              <Icon name="ios-send" size={40} />
+              <Text style={styles.textColor}>Mesaj Gönder</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -235,13 +241,15 @@ export default class extends Component {
           <TouchableOpacity
             onPress={() => this.setModalVisible5(true)}
             style={styles.card}>
-            <View>
-              <Text>Ürünleri Listele</Text>
+            <View style={styles.textCenter}>
+              <Icon name="ios-list" size={40} />
+              <Text style={styles.textColor}>Ürünleri Listele</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.card}>
-            <View>
-              <Text></Text>
+            <View style={styles.textCenter}>
+              <Icon name="ios-add-circle-outline" size={40} />
+              <Text style={styles.textColor}>Eklenecek</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -252,21 +260,39 @@ export default class extends Component {
 
 const styles = StyleSheet.create({
   main: {
-    marginTop: '10%',
     flex: 1,
     flexDirection: 'column',
     backgroundColor: '#fff',
     padding: 40,
     justifyContent: 'center',
     alignItems: 'center',
+    marginVertical: 0,
   },
   card: {
     flex: 1,
     width: 150,
     height: 120,
-    borderColor: '#000',
-    borderWidth: 1,
+    borderRadius: 25,
     marginHorizontal: 10,
     flexDirection: 'row',
+    backgroundColor: 'white',
+    elevation: 15,
+    shadowColor: '#000',
+    shadowOpacity: 0.8,
+    shadowOffset: {
+      x: 20,
+      y: 20,
+    },
+  },
+
+  textCenter: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textColor: {
+    color: '#000',
+    fontWeight: 'bold',
+    fontSize: 15,
   },
 });

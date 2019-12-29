@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {StyleSheet, View, Text, ImageBackground} from 'react-native';
 const ls = require('react-native-local-storage');
+import {ToastAndroid} from 'react-native';
 import {
   Container,
   Content,
@@ -20,21 +21,17 @@ export default class extends Component {
       title: '',
       text: '',
       category: '',
-
       UserId: '',
     };
   }
-  onValueChange2 = value => {
-    this.setState({
-      title: value,
-    });
-  };
 
-  createJob = () => {
-    ls.get('id').then(data => {
-      console.log(data);
+  createJob = async () => {
+    try {
+      const data = await ls.get('id');
       this.setState({UserId: data});
-    });
+    } catch (error) {
+      throw error;
+    }
     const {title, text, category, UserId} = this.state;
     const url = 'http://10.103.174.191:5000/addJob';
     axios
@@ -44,12 +41,17 @@ export default class extends Component {
         category,
         UserId,
       })
-      .then(res => console.log(res))
+      .then(res => {
+        ToastAndroid.show('İş Ekleme Başarılı', ToastAndroid.SHORT);
+        this.setState({title: '', text: '', category: '', UserId: ''});
+      })
       .catch(err => {
         throw err;
       });
   };
   render() {
+    const {title} = this.state;
+
     return (
       <View style={{flex: 1}}>
         <Container>
@@ -63,6 +65,7 @@ export default class extends Component {
                     onChange={e => this.setState({text: e.nativeEvent.text})}
                     style={styles.input}
                     placeholder="Açıklama"
+                    value={this.state.text}
                   />
                 </Item>
                 <Item style={styles.item} last>
@@ -72,18 +75,20 @@ export default class extends Component {
                     }
                     style={styles.input}
                     placeholder="Kategori"
+                    value={this.state.category}
                   />
                 </Item>
                 <Item picker>
                   <Picker
                     mode="dropdown"
-                    iosIcon={<Icon name="arrow-down" />}
+                    iosIcon={<Icon name="ios-arrow-dropdown" />}
                     style={{width: undefined}}
-                    placeholder="Select your SIM"
                     placeholderStyle={{color: '#bfc6ea'}}
                     placeholderIconColor="#007aff"
                     selectedValue={this.state.title}
-                    onValueChange={this.onValueChange2.bind(this)}>
+                    onValueChange={data => {
+                      this.setState({title: data});
+                    }}>
                     <Picker.Item label="Personel" value="Personel" />
                     <Picker.Item label="Stajyer" value="Stajyer" />
                   </Picker>

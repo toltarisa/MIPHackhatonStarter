@@ -3,6 +3,7 @@ import {StyleSheet, View, Text, ImageBackground} from 'react-native';
 import {Container, Content, Form, Item, Input, Button} from 'native-base';
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
+import {ToastAndroid} from 'react-native';
 const ls = require('react-native-local-storage');
 export default class extends Component {
   constructor() {
@@ -17,17 +18,20 @@ export default class extends Component {
     };
   }
 
-  sendProductData = () => {
-    ls.get('id').then(data => {
+  sendProductData = async () => {
+    try {
+      const data = await ls.get('id');
       this.setState({UserId: data});
-    });
+    } catch (error) {
+      throw error;
+    }
     const {name, price, stok, category, UserId} = this.state;
 
     const Name = name;
     const Price = price;
     const Stock = stok;
     const Category = category;
-    console.log(Name, Price, Stock, Category);
+    console.log(Name, Price, Stock, Category, UserId);
     const url = 'http://10.103.174.191:5000/addCompanyProduct';
     axios
       .post(url, {
@@ -37,7 +41,16 @@ export default class extends Component {
         Stock,
         Category,
       })
-      .then(res => console.log(res.status))
+      .then(res => {
+        ToastAndroid.show('Ürün Ekleme Başarılı !', ToastAndroid.SHORT);
+        this.setState({
+          name: '',
+          price: '',
+          stok: '',
+          category: '',
+          UserId: '',
+        });
+      })
       .catch(err => {
         throw err;
       });
@@ -57,6 +70,7 @@ export default class extends Component {
                     onChange={e => this.setState({name: e.nativeEvent.text})}
                     style={styles.input}
                     placeholder="Ürün Adı"
+                    value={this.state.name}
                   />
                 </Item>
                 <Item style={styles.item} last>
@@ -64,6 +78,7 @@ export default class extends Component {
                     onChange={e => this.setState({price: e.nativeEvent.text})}
                     style={styles.input}
                     placeholder="Fiyat"
+                    value={this.state.price}
                   />
                 </Item>
                 <Item style={styles.item} last>
@@ -71,6 +86,7 @@ export default class extends Component {
                     onChange={e => this.setState({stok: e.nativeEvent.text})}
                     style={styles.input}
                     placeholder="Stok"
+                    value={this.state.stok}
                   />
                 </Item>
                 <Item style={styles.item} last>
@@ -80,6 +96,7 @@ export default class extends Component {
                     }
                     style={styles.input}
                     placeholder="Kategori"
+                    value={this.state.category}
                   />
                 </Item>
 
