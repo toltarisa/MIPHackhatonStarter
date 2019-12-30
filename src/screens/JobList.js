@@ -44,6 +44,7 @@ export default class extends Component {
 
   render() {
     const {JobData} = this.state;
+
     return (
       <View style={styles.main}>
         <View>

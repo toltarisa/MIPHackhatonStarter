@@ -63,7 +63,12 @@ export default class extends Component {
                       small
                       success
                       style={styles.button}>
-                      <Icon color={'#fff'} name="ios-checkmark" size={20} />
+                      <Icon
+                        style={{marginRight: 10}}
+                        color={'#fff'}
+                        name="ios-checkmark"
+                        size={20}
+                      />
                       <Text style={styles.textColor}>Satın Al</Text>
                     </Button>
                   </CardItem>
@@ -94,5 +99,8 @@ const styles = StyleSheet.create({
   },
   button: {
     paddingHorizontal: 10,
+  },
+  textColor: {
+    color: '#fff',
   },
 });

@@ -18,7 +18,7 @@ export default class extends Component {
     super();
 
     this.state = {
-      title: '',
+      selected2: '',
       text: '',
       category: '',
       UserId: '',
@@ -32,7 +32,8 @@ export default class extends Component {
     } catch (error) {
       throw error;
     }
-    const {title, text, category, UserId} = this.state;
+    const {text, category, UserId} = this.state;
+    const title = this.state.selected2;
     const url = 'http://10.103.174.191:5000/addJob';
     axios
       .post(url, {
@@ -43,15 +44,20 @@ export default class extends Component {
       })
       .then(res => {
         ToastAndroid.show('İş Ekleme Başarılı', ToastAndroid.SHORT);
-        this.setState({title: '', text: '', category: '', UserId: ''});
+        this.setState({selected2: '', text: '', category: '', UserId: ''});
       })
       .catch(err => {
         throw err;
       });
   };
+  onValueChange2(value) {
+    this.setState({
+      selected2: value,
+    });
+  }
   render() {
-    const {title} = this.state;
-
+    const {selected2} = this.state;
+    console.log(selected2);
     return (
       <View style={{flex: 1}}>
         <Container>
@@ -78,19 +84,19 @@ export default class extends Component {
                     value={this.state.category}
                   />
                 </Item>
-                <Item picker>
+                <Item style={{flex: 1, marginBottom: 20}} picker>
                   <Picker
                     mode="dropdown"
                     iosIcon={<Icon name="ios-arrow-dropdown" />}
-                    style={{width: undefined}}
+                    style={{flex: 1}}
                     placeholderStyle={{color: '#bfc6ea'}}
                     placeholderIconColor="#007aff"
-                    selectedValue={this.state.title}
+                    selectedValue={this.state.selected2}
                     onValueChange={data => {
-                      this.setState({title: data});
+                      this.setState({selected2: data});
                     }}>
-                    <Picker.Item label="Personel" value="Personel" />
-                    <Picker.Item label="Stajyer" value="Stajyer" />
+                    <Picker.Item label={'Personel'} value={'Personel'} />
+                    <Picker.Item label={'Stajyer'} value={'Stajyer'} />
                   </Picker>
                 </Item>
 
@@ -101,7 +107,12 @@ export default class extends Component {
                     }}
                     small
                     success
-                    style={{width: '40%', height: 50, padding: 10}}>
+                    style={{
+                      width: '40%',
+                      height: 50,
+                      padding: 10,
+                      marginVertical: 20,
+                    }}>
                     <Icon color={'#fff'} name="ios-checkmark" size={30} />
                     <Text style={{fontSize: 15, color: '#fff'}}>
                       İlan Oluştur
